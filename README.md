@@ -2,7 +2,7 @@
 
 ## Complete Introduction to Python Programming
 
-Welcome to **Python-AtoZed**!  
+Welcome to **PythonAtoZed**!  
 This introduction course takes you from Python basics to advanced concepts like Object-Oriented Programming, modules, and decorators.  
 Whether you're a complete beginner or coming from another programming language, this course provides hands-on learning with practical examples, exercises, and **interactive quizzes**.
 
@@ -26,14 +26,14 @@ Whether you're a complete beginner or coming from another programming language, 
 - **Interactive**: Designed for Jupyter notebooks with immediate feedback
 - **Comprehensive**: Covers everything needed for Python proficiency
 
-> **Note**: Main course file can be found in the [theory folder > python-atozed.ipynb](https://github.com/ReneDussault/Python-AtoZed/blob/main/theory/python-atozed.ipynb)
+> **Note**: Main course file can be found in the [theory folder > python-atozed.ipynb](https://github.com/ReneDussault/PythonAtoZed/blob/main/theory/python-atozed.ipynb)
 
 ## Quick Start (No Installation Required)
 
 ### Launch in MyBinder
 Click the badge below to launch the course instantly in your browser:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ReneDussault/Python-AtoZed/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ReneDussault/PythonAtoZed/HEAD)
 
 **MyBinder** provides a free, interactive environment where you can:
 - Run the course without installing anything
@@ -57,7 +57,7 @@ Click the badge below to launch the course instantly in your browser:
 ### Installation Steps
 1. **Clone this repository:**
    ```bash
-   git clone https://github.com/ReneDussault/python-AtoZed.git
+   git clone https://github.com/ReneDussault/PythonAtoZed.git
    cd python-AtoZed
    ```
 
