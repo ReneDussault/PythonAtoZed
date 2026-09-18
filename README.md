@@ -7,6 +7,7 @@ This introduction course takes you from Python basics to advanced concepts like 
 Whether you're a complete beginner or coming from another programming language, this course provides hands-on learning with practical examples, exercises, and **interactive quizzes**.
 
 ### What You'll Learn
+
 - **Solid Foundation**: Python syntax, data types, and core concepts
 - **Data Structures**: Work with lists, tuples, dictionaries, and sets
 - **Control Flow**: Understand conditionals, loops, and program logic
@@ -16,6 +17,7 @@ Whether you're a complete beginner or coming from another programming language, 
 - **BONUS**: Decorators
 
 ### Course Features
+
 - **Beginner Friendly**: Starts with absolute basics
 - **Progressive Learning**: Each section builds on previous knowledge
 - **Practical Focus**: Every concept includes working code examples
@@ -31,11 +33,13 @@ Whether you're a complete beginner or coming from another programming language, 
 ## Quick Start (No Installation Required)
 
 ### Launch in MyBinder
+
 Click the badge below to launch the course instantly in your browser:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/ReneDussault/PythonAtoZed/HEAD)
 
 **MyBinder** provides a free, interactive environment where you can:
+
 - Run the course without installing anything
 - No login needed
 - Modify and experiment with code examples
@@ -51,14 +55,17 @@ Click the badge below to launch the course instantly in your browser:
 ## Local Setup (Recommended for Long-term Learning)
 
 ### Prerequisites
+
 - [Python 3.8+](https://www.python.org/downloads/)
 - [Visual Studio Code](https://code.visualstudio.com/)
 
 ### Installation Steps
+
 1. **Clone this repository:**
+
    ```bash
    git clone https://github.com/ReneDussault/PythonAtoZed.git
-   cd python-AtoZed
+   cd PythonAtoZed
    ```
 
 2. **Install VS Code extensions:**
@@ -78,7 +85,7 @@ Click the badge below to launch the course instantly in your browser:
 
 5. **Test your knowledge:**
    - Navigate to the `quizzes` folder
-   - Run `python interactive_quiz.py` to access the quiz system
+   - Run `python interactive_quiz_from_json.py` to access the quiz system
    - Choose from section-specific quizzes or take the comprehensive final exam
 
 > **Note**: You can use any IDE that supports Python and Jupyter notebooks!
@@ -92,15 +99,17 @@ Click the badge below to launch the course instantly in your browser:
 The course includes a comprehensive quiz system with:
 
 #### **Available Quizzes:**
-- **Section 1**: Basic Syntax (13 questions)
-- **Section 2**: Data Structures (11 questions)  
-- **Section 3**: Flow Control (12 questions)
-- **Section 4**: Functions (10 questions)
-- **Section 5**: Object-Oriented Programming (10 questions)
-- **Section 6**: Modules and Libraries (10 questions)
-- **Final Quiz**: Comprehensive Assessment (25 questions)
+
+- **Section 1**: Basic Syntax (30 questions)
+- **Section 2**: Data Structures (31 questions)
+- **Section 3**: Flow Control (30 questions)
+- **Section 4**: Functions (30 questions)
+- **Section 5**: Object-Oriented Programming (30 questions)
+- **Section 6**: Modules and Libraries (30 questions)
+- **Final Quiz**: Comprehensive Assessment (181 questions)
 
 #### **Features:**
+
 - ✅ **Multiple Choice Questions** with instant feedback
 - ✅ **Code Output Questions** to test practical understanding
 - ✅ **True/False Questions** for concept verification
@@ -109,17 +118,19 @@ The course includes a comprehensive quiz system with:
 - ✅ **Terminal-based Interface** - no additional setup required
 
 #### **How to Use:**
+
 ```bash
 # Navigate to the quizzes folder
 cd quizzes
 
-# Run the interactive quiz system
-python interactive_quiz.py
+# Run the JSON-based interactive quiz system
+python interactive_quiz_from_json.py
 
 # Choose a quiz (1-7) and start testing your knowledge!
 ```
 
 #### **Sample Quiz Flow:**
+
 ```
 Welcome to Section 1: Basic Syntax Quiz
 ========================================
@@ -127,7 +138,7 @@ Question 1:
 Which of the following is the correct way to create a comment in Python?
 
 a) // This is a comment
-b) # This is a comment  
+b) # This is a comment
 c) /* This is a comment */
 d) <!-- This is a comment -->
 
@@ -144,6 +155,7 @@ Final Score: 12/13 (92.3%) - Grade: A - Excellent!
 **Introduction**
 
 **Basic Syntax**
+
 - Printing output with print()
 - Commenting
 - Multiline comment (docstring)
@@ -153,6 +165,7 @@ Final Score: 12/13 (92.3%) - Grade: A - Excellent!
 - Basic Operators
 
 **Data Structures**
+
 - Lists, indexing, slicing
 - List Methods
 - List Comprehension
@@ -162,23 +175,26 @@ Final Score: 12/13 (92.3%) - Grade: A - Excellent!
 - More Examples
 
 **Flow Control**
+
 - Conditional Statements (if, elif, else)
 - For Loops
 - While Loops
-- Loop Control Statements  
-  - continue  
-  - break  
-  - pass  
+- Loop Control Statements
+  - continue
+  - break
+  - pass
 - Range and Enumerate Functions
 - Summary of Flow Control
 
 **Functions**
+
 - Defining and Calling Functions
 - Parameters and Arguments
 - Return Statements
 - Lambda Function
 
 **Introduction to OOP**
+
 - Classes and Objects
 - The init Method (Constructor)
 - Attributes and Methods
@@ -189,12 +205,14 @@ Final Score: 12/13 (92.3%) - Grade: A - Excellent!
 - Magic Methods
 
 **Modules and Libraries**
+
 - Importing Modules
 - Standard Libraries
 - Custom Modules
 - Summary of Modules and Packages
 
 **BONUS: Decorators**
+
 - What is a Decorator?
 - Built-in Decorators (@property, @classmethod, @staticmethod)
 - Custom Function Decorators
@@ -205,6 +223,7 @@ Final Score: 12/13 (92.3%) - Grade: A - Excellent!
 
 This is a work in progress.  
 Found an issue or have suggestions? Please:
+
 - [Create an issue](https://github.com/ReneDussault/python-AtoZed/issues)
 - Submit a pull request
 - Share your feedback
