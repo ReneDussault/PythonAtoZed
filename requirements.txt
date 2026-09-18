@@ -1,0 +1,3 @@
+# No external packages needed — course uses only the Python standard library.
+# This file exists so repo2docker/MyBinder builds a pinned, reproducible
+# environment instead of falling back to whatever default image is current.
