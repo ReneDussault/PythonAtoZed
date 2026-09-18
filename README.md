@@ -8,11 +8,11 @@ Whether you're a complete beginner or coming from another programming language, 
 
 ## How This Course Works
 
-1. **theory/** — the lectures. Work through `python-atozed.ipynb` section by section.
-2. **homeworks/** — practice problems matching each theory section, with solutions included.
-3. **quizzes/** — test what you learned after each section.
+1. **theory/** the lectures. Work through `python-atozed.ipynb` section by section. [theory folder > python-atozed.ipynb](https://github.com/ReneDussault/PythonAtoZed/blob/main/theory/python-atozed.ipynb)
+2. **homeworks/** practice problems matching each theory section, with solutions included. [homeworks folder](https://github.com/ReneDussault/PythonAtoZed/tree/main/homeworks)
+3. **quizzes/** test what you learned after each section. [quizzes folder](https://github.com/ReneDussault/PythonAtoZed/tree/main/quizzes)
 
-> **Note**: Recommended flow per section: theory notebook → homework → quiz.
+> **Note**: Recommended flow per section: theory notebook (lectures) → homework → quiz.
 
 ### What You'll Learn
 
@@ -35,8 +35,6 @@ Whether you're a complete beginner or coming from another programming language, 
 - **Exercises & Summaries**: Reinforce learning with practice problems
 - **Interactive**: Designed for Jupyter notebooks with immediate feedback
 - **Comprehensive**: Covers everything needed for Python proficiency
-
-> **Note**: Main course file can be found in the [theory folder > python-atozed.ipynb](https://github.com/ReneDussault/PythonAtoZed/blob/main/theory/python-atozed.ipynb)
 
 ## Quick Start (No Installation Required)
 
