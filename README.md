@@ -6,6 +6,14 @@ Welcome to **PythonAtoZed**!
 This introduction course takes you from Python basics to advanced concepts like Object-Oriented Programming, modules, and decorators.  
 Whether you're a complete beginner or coming from another programming language, this course provides hands-on learning with practical examples, exercises, and **interactive quizzes**.
 
+## How This Course Works
+
+1. **theory/** — the lectures. Work through `python-atozed.ipynb` section by section.
+2. **homeworks/** — practice problems matching each theory section, with solutions included.
+3. **quizzes/** — test what you learned after each section.
+
+> **Note**: Recommended flow per section: theory notebook → homework → quiz.
+
 ### What You'll Learn
 
 - **Solid Foundation**: Python syntax, data types, and core concepts
