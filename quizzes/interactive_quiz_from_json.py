@@ -92,9 +92,9 @@ class PythonQuiz:
 
         duration = int(end_time - self.start_time)
         
-        print(f"\n{'='*50}")
+        print(f"\n{'='*80}")
         print("QUIZ COMPLETED!")
-        print(f"{'='*50}")
+        print(f"{'='*80}")
         print(f"Score: {self.score}/{self.total_questions}")
         
         if self.total_questions > 0:
@@ -119,7 +119,25 @@ class PythonQuiz:
             print(f"Grade: {grade}")
         
         print(f"Time taken: {duration//60}:{duration%60:02d}")
-        print(f"{'='*50}")
+        print(f"{'='*80}")
+        return "completed"
+
+    def quit_quiz(self):
+        end_time = time.time()
+
+        if self.start_time is None:
+            print("Error: Quiz was not properly started!")
+            return "quit"
+
+        duration = int(end_time - self.start_time)
+
+        print(f"\n{'='*80}")
+        print("Quiz ended early.")
+        print(f"{'='*80}")
+        print(f"Score so far: {self.score}/{self.total_questions}")
+        print(f"Time taken: {duration//60}:{duration%60:02d}")
+        print(f"{'='*80}")
+        return "quit"
 
 
 class JSONQuizLoader:
@@ -191,6 +209,8 @@ def run_json_quiz(file_path, quiz_name, num_questions=None, mode="random"):
     if not all_questions:
         print("No questions found in the quiz file.")
         return
+
+    total_questions = len(all_questions)
     
     # Select questions based on mode
     if num_questions:
@@ -198,31 +218,33 @@ def run_json_quiz(file_path, quiz_name, num_questions=None, mode="random"):
         actual_quiz_name = f"{quiz_name} ({len(selected_questions)} Questions)"
     else:
         selected_questions = all_questions
-        actual_quiz_name = f"{quiz_name} (Complete - {len(selected_questions)} Questions)"
+        actual_quiz_name = f"{quiz_name} (Complete - {total_questions} Questions)"
     
     # Run the quiz
     quiz = PythonQuiz()
     quiz.start_quiz(actual_quiz_name)
     
+    quit_early = False
     for question_data in selected_questions:
         if not quiz.ask_question(question_data):
+            quit_early = True
             break
     
-    quiz.end_quiz()
+    if quit_early:
+        return quiz.quit_quiz()
+    return quiz.end_quiz()
 
 
-def create_quiz_mode_selector(section_name, file_path, total_questions=30):
+def create_quiz_mode_selector(section_name, file_path):
     """Generic quiz mode selector for quiz.JSON"""
     print(f"\n🎯 {section_name}")
-    print("="*50)
+    print("="*80)
     print("Choose your quiz mode:")
     print("1. Flash Quiz (5 questions) - Quick review")
     print("2. Practice Quiz (10 questions) - Focused practice") 
     print("3. Standard Quiz (15 questions) - Balanced review")
-    print(f"4. In-Depth Quiz (All {total_questions} questions) - Complete assessment")
-    print("="*50)
-    
-    choice = input("Select mode (1-4): ").strip()
+    print("4. In-Depth Quiz (All questions) - Complete assessment")
+    print("="*80)
     
     quiz_modes = {
         "1": (5, "Flash Quiz"),
@@ -230,55 +252,29 @@ def create_quiz_mode_selector(section_name, file_path, total_questions=30):
         "3": (15, "Standard Quiz"),
         "4": (None, "In-Depth Quiz")  # None means all questions
     }
-    
-    if choice in quiz_modes:
-        num_questions, mode_name = quiz_modes[choice]
-        quiz_name = f"{section_name} - {mode_name}"
-        run_json_quiz(file_path, quiz_name, num_questions, "random")
-    else:
-        print("❌ Invalid choice! Please select 1-4.")
+
+    while True:
+        choice = input("Select mode (1-4): ").strip()
+
+        if choice.lower() in ["quit", "exit"]:
+            return "quit"
+        
+        if choice in quiz_modes:
+            num_questions, mode_name = quiz_modes[choice]
+            quiz_name = f"{section_name} - {mode_name}"
+            return run_json_quiz(file_path, quiz_name, num_questions, "random")
+        else:
+            print("❌ Invalid choice! Please select 1-4.")
 
 
-def section1_quiz():
-    """Section 1: Basic Syntax Quiz"""
-    file_path = "./section1_basic_syntax_quiz.json"
-    section_name = "Section 1: Basic Syntax Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
-
-
-def section2_quiz():
-    """Section 2: Data Structures Quiz"""
-    file_path = "./section2_data_structures_quiz.json"  
-    section_name = "Section 2: Data Structures Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
-
-
-def section3_quiz():
-    """Section 3: Flow Control Quiz"""
-    file_path = "./section3_flow_control_quiz.json"  
-    section_name = "Section 3: Flow Control Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
-
-
-def section4_quiz():
-    """Section 4: Functions Quiz"""
-    file_path = "./section4_functions_quiz.json"  
-    section_name = "Section 4: Functions Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
-
-
-def section5_quiz():
-    """Section 5: OOP Quiz"""
-    file_path = "./section5_oop_quiz.json"  
-    section_name = "Section 5: Object-Oriented Programming Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
-
-
-def section6_quiz():
-    """Section 6: Modules & Libraries Quiz"""
-    file_path = "./section6_modules_libraries_quiz.json"  
-    section_name = "Section 6: Modules and Libraries Quiz"
-    create_quiz_mode_selector(section_name, file_path, 30)
+SECTION_QUIZZES = {
+    "1": ("./section1_basic_syntax_quiz.json", "Section 1: Basic Syntax Quiz"),
+    "2": ("./section2_data_structures_quiz.json", "Section 2: Data Structures Quiz"),
+    "3": ("./section3_flow_control_quiz.json", "Section 3: Flow Control Quiz"),
+    "4": ("./section4_functions_quiz.json", "Section 4: Functions Quiz"),
+    "5": ("./section5_oop_quiz.json", "Section 5: Object-Oriented Programming Quiz"),
+    "6": ("./section6_modules_libraries_quiz.json", "Section 6: Modules and Libraries Quiz"),
+}
 
 
 def run_comprehensive_quiz(sections, questions_per_section, mode_name):
@@ -335,25 +331,31 @@ def run_comprehensive_quiz(sections, questions_per_section, mode_name):
     actual_quiz_name = f"{mode_name} ({len(all_questions)} Questions)"
     quiz.start_quiz(actual_quiz_name)
     
+    quit_early = False
     for question_data in all_questions:
         if not quiz.ask_question(question_data):
+            quit_early = True
             break
     
-    quiz.end_quiz()
+    if quit_early:
+        return quiz.quit_quiz()
+    return quiz.end_quiz()
 
 
 def final_quiz():
     """Final Comprehensive Quiz - Combines questions from all sections"""
+    print()
+    print()
+    print()
     print("\n🎯 Final Comprehensive Quiz")
-    print("="*50)
+    print("="*80)
     print("Choose your comprehensive quiz mode:")
     print("1. Quick Review (30 questions) - 5 from each section")
     print("2. Standard Review (60 questions) - 10 from each section") 
     print("3. Thorough Review (90 questions) - 15 from each section")
     print("4. Complete Assessment (All 180 questions) - All questions from all sections")
-    print("="*50)
+    print("="*80)
     
-    choice = input("Select mode (1-4): ").strip()
     
     # Define section files and names
     sections = [
@@ -371,12 +373,18 @@ def final_quiz():
         "3": (15, "Thorough Review"),
         "4": (None, "Complete Assessment")  # None means all questions
     }
-    
-    if choice in mode_configs:
-        questions_per_section, mode_name = mode_configs[choice]
-        run_comprehensive_quiz(sections, questions_per_section, mode_name)
-    else:
-        print("❌ Invalid choice! Please select 1-4.")
+
+    while True:
+        choice = input("Select mode (1-4): ").strip()
+
+        if choice.lower() in ["quit", "exit"]:
+            return "quit"
+
+        if choice in mode_configs:
+            questions_per_section, mode_name = mode_configs[choice]
+            return run_comprehensive_quiz(sections, questions_per_section, mode_name)
+        else:
+            print("❌ Invalid choice! Please select 1-4.")
 
 
 if __name__ == "__main__":
@@ -385,29 +393,34 @@ if __name__ == "__main__":
     print()
     print("Welcome to the Python A-to-Z Interactive Quiz System!")
     print("🐍 Python A-to-Z Quiz System 🐍")
-    print("="*40)
-    print("1. Section 1: Basic Syntax (JSON)")
-    print("2. Section 2: Data Structures (JSON)") 
-    print("3. Section 3: Flow Control (JSON)")
-    print("4. Section 4: Functions (JSON)")
-    print("5. Section 5: OOP (JSON)")
-    print("6. Section 6: Modules & Libraries (JSON)")
+    print("="*80)
+    print("1. Section 1: Basic Syntax")
+    print("2. Section 2: Data Structures")
+    print("3. Section 3: Flow Control")
+    print("4. Section 4: Functions")
+    print("5. Section 5: OOP")
+    print("6. Section 6: Modules & Libraries")
     print("7. Final Comprehensive Quiz")
-    print("="*40)
+    print("="*80)
     
-    choice = input("Choose a quiz (1-7): ").strip()
-    
-    quiz_functions = {
-        "1": section1_quiz,
-        "2": section2_quiz,
-        "3": section3_quiz,
-        "4": section4_quiz,
-        "5": section5_quiz,
-        "6": section6_quiz,
-        "7": final_quiz
-    }
-    
-    if choice in quiz_functions:
-        quiz_functions[choice]()
-    else:
-        print("❌ Invalid choice! Please select 1-7.")
+    while True:
+        choice = input("Choose a section (1-7): ").strip()
+
+        if choice.lower() in ["quit", "exit"]:
+            print("Exiting quiz. See you next time!")
+            break
+
+        if choice in SECTION_QUIZZES:
+            file_path, section_name = SECTION_QUIZZES[choice]
+            result = create_quiz_mode_selector(section_name, file_path)
+        elif choice == "7":
+            result = final_quiz()
+        else:
+            print("❌ Invalid choice! Please select 1-7.")
+            continue
+
+        if result == "completed":
+            break
+        if result in ["quit", "exit"]:
+            print("Exiting quiz. See you next time!")
+            break
