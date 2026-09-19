@@ -177,10 +177,10 @@
             "a": "[x for x in range(10) if x % 2 == 1]",
             "b": "[x for x in range(11) if x % 2 == 0]",
             "c": "[x * 2 for x in range(6)]",
-            "d": "Both a and c"
+            "d": "Both b and c"
           },
           "correct_answer": "d",
-          "explanation": "Option 'a' directly filters even numbers, while option 'c' generates even numbers by multiplying the range by 2."
+          "explanation": "Option 'b' directly filters even numbers, while option 'c' generates even numbers by multiplying the range by 2."
         },
         {
           "id": 14,
