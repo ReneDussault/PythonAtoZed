@@ -100,7 +100,7 @@ Click the badge below to launch the course instantly in your browser:
 
 ## Interactive Quiz System
 
-### 🐍 Test Your Python Knowledge!
+### Test Your Python Knowledge!
 
 The course includes a comprehensive quiz system with:
 
@@ -116,12 +116,12 @@ The course includes a comprehensive quiz system with:
 
 #### **Features:**
 
-- ✅ **Multiple Choice Questions** with instant feedback
-- ✅ **Code Output Questions** to test practical understanding
-- ✅ **True/False Questions** for concept verification
-- ✅ **Progress Tracking** with scores and timing
-- ✅ **Grade System** (A-F) based on performance
-- ✅ **Terminal-based Interface** - no additional setup required
+- **Multiple Choice Questions** with instant feedback
+- **Code Output Questions** to test practical understanding
+- **True/False Questions** for concept verification
+- **Progress Tracking** with scores and timing
+- **Grade System** (A-F) based on performance
+- **Terminal-based Interface** - no additional setup required
 
 #### **How to Use:**
 
